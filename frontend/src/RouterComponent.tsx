@@ -11,6 +11,10 @@ import StripeCheckout from "./stripe/StripeCheckout";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 import OrderSummary from "./food_service/page/order_item/OrderItem";
+import Promotion from "./promotion/pages/promotion";
+import PromotionCreate from "./promotion/pages/promotion/create";
+import PromotionEdit from "./promotion/pages/promotion/edit";
+import Review from "./review/pages/review";
 // import App from "./stripe2/App";
 // import Return from "./stripe2/return";
 
@@ -25,6 +29,66 @@ const RouterComponent: React.FC = () => {
     {
       path: "/signup",
       element: <SignUpPages />,
+    },
+    {
+      path: "/review",
+      children: [
+        {
+
+          path: "/review",
+
+          element: <Review />,
+
+        },
+        // {
+
+        //   path: "/review/create",
+
+        //   element: <ReviewCreate />,
+
+        // },
+
+        // {
+
+        //   path: "/review/edit/:id",
+
+        //   element: <ReviewEdit />,
+
+        // },
+      ]
+    },
+    {
+
+      path: "/promotion",
+      // element: <Navbar />,
+      children: [
+
+        {
+
+          path: "/promotion",
+
+          element: <Promotion />,
+
+        },
+
+        {
+
+          path: "/promotion/create",
+
+          element: <PromotionCreate />,
+
+        },
+
+        {
+
+          path: "/promotion/edit/:id",
+
+          element: <PromotionEdit />,
+
+        },
+
+      ],
+
     },
     {
       path: "/login/food-service",

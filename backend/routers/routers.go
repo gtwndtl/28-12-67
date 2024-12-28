@@ -1,13 +1,21 @@
 package routers
 
 import (
-	"github.com/gin-gonic/gin"
 	"net/http"
 	"project-se67/controller/customer"
 	"project-se67/controller/food_service"
 	"project-se67/controller/genders"
 	"project-se67/controller/payment"
+	"project-se67/controller/promotion/discount_type"
+	"project-se67/controller/promotion/promotion"
+	"project-se67/controller/promotion/promotion_status"
+	"project-se67/controller/promotion/promotion_type"
+	"project-se67/controller/promotion/promotion_used"
+	"project-se67/controller/review/review"
+	"project-se67/controller/review/review_type"
 	"project-se67/middlewares"
+
+	"github.com/gin-gonic/gin"
 )
 
 const PORT = "8000"
@@ -90,6 +98,43 @@ func SetupRouter() *gin.Engine {
 		//
 		r.GET("/orders/pending/:customerID", food_service.GetPendingOrderByCustomerID)
 		r.POST("/add-item-to-order", food_service.AddItemToOrder)
+
+		//Promotion
+		router.POST("/promotion", promotion.AddPromotion)
+		router.PUT("/promotion/:id", promotion.Update)
+		router.GET("/promotions", promotion.GetAll)
+		router.GET("/promotion/:id", promotion.Get)
+		router.DELETE("/promotion/:id", promotion.Delete)
+
+		//PromotionUsed
+		router.POST("/used", promotion_used.AddPromotionUsed)
+		router.PUT("/used/:id", promotion_used.Update)
+		router.GET("/useds", promotion_used.GetAll)
+		router.GET("/used/:id", promotion_used.Get)
+		router.DELETE("/used/:id", promotion_used.Delete)
+
+		//PromotionType
+		router.GET("/types", promotion_type.GetAll)
+		router.GET("/type/:id", promotion_type.Get)
+
+		//PromotionStatus
+		router.GET("/status", promotion_status.GetAll)
+
+		//DiscountType
+		router.GET("/discount_type", discount_type.GetAll)
+		router.GET("/discount_type/:id", discount_type.Get)
+
+		//Review
+		router.POST("/review", review.AddReview)
+		router.PUT("/review/:id", review.Update)
+		router.GET("/reviews", review.GetAll)
+		router.GET("/review/:id", review.Get)
+		router.DELETE("/review/:id", review.Delete)
+
+
+		//ReviewType
+		router.GET("/reviewtypes", review_type.GetAll)
+		router.GET("/reviewtype/:id", review_type.Get)
 	}
 
 	r.GET("/genders", genders.GetAll)

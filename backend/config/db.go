@@ -25,6 +25,8 @@ func ConnectionDB() {
 func SetupDatabase() {
    setup.SetupFoodServiceDatabase(db)
    setup.SetupPaymentDatabase(db)
+   setup.SetupPromotionDatabase(db)
+   setup.SetupReviewDatabase(db)
    SetupUserDatabase()
 
 

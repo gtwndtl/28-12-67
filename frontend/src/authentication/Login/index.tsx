@@ -37,7 +37,7 @@ function SignInPages() {
 
       setTimeout(() => {
 
-        location.href = "/login/food-service/order";
+        location.href = "/review";
 
       }, 2000);
 

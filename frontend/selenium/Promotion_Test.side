@@ -457,7 +457,7 @@
       "command": "assertText",
       "target": "css=.ant-form-item-explain-error",
       "targets": [],
-      "value": "กรุณากรอกรายละเอียด!"
+      "value": "กรุณากรอกรหัสโปรโมชั่น!"
     }]
   }],
   "suites": [{

@@ -192,7 +192,7 @@ function PromotionCreate() {
                     rules={[
                       {
                         required: true,
-                        message: "กรุณากรอกรายละเอียด!",
+                        message: "กรุณากรอกรหัสโปรโมชั่น!",
                       },
                       {
                         pattern: /^[A-Za-z0-9]{1,10}$/, // ตัวอักษรภาษาอังกฤษหรือตัวเลข ไม่เกิน 10 ตัว

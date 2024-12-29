@@ -75,6 +75,8 @@ function PromotionCreate() {
       status_id: 1,
       count_limit: 0,
       limit: Number(values.limit),
+      limit_discount: Number(values.limit_discount),
+      minimum_price: Number(values.minimum_price),
     };
 
     try {
